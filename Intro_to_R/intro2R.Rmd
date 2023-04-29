@@ -848,10 +848,7 @@ barplot(c(2,5,7,10),
 ```
 
 --
-- To know more about `RColorBrewer`
-```{r eval=FALSE}
-help("RColorBrewer")
-```
+- To know more about `RColorBrewer` use `help("RColorBrewer")`
 
 ---
 # Generic X-Y Plotting
@@ -964,6 +961,7 @@ plot(wt, mpg, main = "Scatter plot",
 ---
 # Generic X-Y Plotting
 
+- We have so far created the following plots
 
 ```{r,echo=FALSE, fig.height=5,fig.width=10}
 par(mfrow=c(2,3))
@@ -988,8 +986,19 @@ plot(wt, mpg, main = "Scatter Plot",
 ---
 # How to save a plot?
 
+- To save the plot as .tiff file, use
 ```{r, eval=FALSE}
 tiff(filename = "Boxplot.tiff",
+     height = 4, width = 6, units = "in", res = 300)
+boxplot(len ~ dose, data = ToothGrowth, 
+        frame = FALSE,
+        col = c("#999999", "#E69F00", "#56B4E9"))
+dev.off()
+```
+
+- To save the plot as .jpg file, use
+```{r, eval=FALSE}
+jpeg(filename = "Boxplot.jpg",
      height = 4, width = 6, units = "in", res = 300)
 boxplot(len ~ dose, data = ToothGrowth, 
         frame = FALSE,

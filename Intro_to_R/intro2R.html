@@ -951,11 +951,7 @@ barplot(c(2,5,7,10),
 ![](intro2R_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
 
 --
-- To know more about `RColorBrewer`
-
-```r
-help("RColorBrewer")
-```
+- To know more about `RColorBrewer` use `help("RColorBrewer")`
 
 ---
 # Generic X-Y Plotting
@@ -991,7 +987,7 @@ boxplot(len ~ dose,
                          name = "Blues"))
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1006,7 +1002,7 @@ boxplot(len ~ dose,
                 "#E69F00", "#56B4E9"))
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 
 ---
 # Generic X-Y Plotting
@@ -1025,7 +1021,7 @@ pie(dat$value, labels = dat$group, radius = 1,
     col = brewer.pal(n = 3, name = "PiYG")) 
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
 
 ---
 # Generic X-Y Plotting
@@ -1036,7 +1032,7 @@ hist(mtcars$mpg, col = "steelblue", xlab = "",
      main = "Histogram")
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 
 ---
 # Generic X-Y Plotting
@@ -1050,7 +1046,7 @@ plot(dens, frame = FALSE, col = "steelblue",
      main = "Density plot of mpg")
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
 
 ---
 # Generic X-Y Plotting
@@ -1079,7 +1075,7 @@ legend("topleft", legend=c("Line 1", "Line 2"),
        col=c("red", "blue"), lty = 1:2, cex=0.8)
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
 ---
 # Generic X-Y Plotting
 
@@ -1098,20 +1094,33 @@ plot(wt, mpg, main = "Scatter plot",
      pch = 19, frame = F)
 ```
 
-![](intro2R_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 ---
 # Generic X-Y Plotting
 
+- We have so far created the following plots
 
-![](intro2R_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
+![](intro2R_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
 
 
 ---
 # How to save a plot?
 
+- To save the plot as .tiff file, use
 
 ```r
 tiff(filename = "Boxplot.tiff",
+     height = 4, width = 6, units = "in", res = 300)
+boxplot(len ~ dose, data = ToothGrowth, 
+        frame = FALSE,
+        col = c("#999999", "#E69F00", "#56B4E9"))
+dev.off()
+```
+
+- To save the plot as .jpg file, use
+
+```r
+jpeg(filename = "Boxplot.jpg",
      height = 4, width = 6, units = "in", res = 300)
 boxplot(len ~ dose, data = ToothGrowth, 
         frame = FALSE,
